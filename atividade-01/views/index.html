@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RM PESCA</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom, #e8f5e9, #c8e6c9);
+        }
+
+        header {
+            background-color: #1b5e20;
+            color: white;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 32px;
+            letter-spacing: 1px;
+        }
+
+        nav {
+            background-color: #2e7d32;
+            padding: 12px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #a5d6a7;
+        }
+
+        .conteudo {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .conteudo h2 {
+            font-size: 28px;
+            color: #1b5e20;
+        }
+
+        .conteudo p {
+            font-size: 18px;
+            color: #2e7d32;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        .botao {
+            background-color: #43a047;
+            color: white;
+            padding: 14px 30px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+
+        .botao:hover {
+            background-color: #2e7d32;
+            transform: scale(1.05);
+        }
+
+        footer {
+            background-color: #1b5e20;
+            color: white;
+            text-align: center;
+            padding: 18px;
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🎣 Bem-vindo à RM Pesca!</h1>
+    </header>
+
+    <nav>
+        <a href="/lista">Lista</a>
+        <a href="/formulario">Cadastro</a>
+    </nav>
+
+    <div class="conteudo">
+        <h2>Equipamentos de Qualidade para Sua Melhor Pescaria</h2>
+        <p>Varas, molinetes, carretilhas, iscas artificiais e tudo que você precisa para fisgar grandes histórias.</p>
+        <button class="botao" onclick="window.location.href='/lista'">
+    Ver Produtos
+</button>
+    </div>
+
+    <footer>
+        © 2026 RM Pesca - Todos os direitos reservados
+    </footer>
+
+</body>
+</html>
