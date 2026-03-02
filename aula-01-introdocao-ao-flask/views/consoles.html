@@ -7,5 +7,18 @@
 </head>
 <body>
     <h1>Bem vindo a pagina de  Consoles</h1>
+    <ul>
+        <li><a href="/">Voltar</a></li>
+        <h1>Consoles</h1>
+        <hr>
+        <h2>console em destaques</h2>
+        {% for chave, valor in console.items()%}
+        <details>
+            <summary>{{chave}}</summary>
+            <p>{{valor}}</p>
+        </details>
+    
+        {% endfor %}
+    </ul>
 </body>
 </html>

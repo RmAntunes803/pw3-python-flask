@@ -6,6 +6,25 @@
     <title>games</title>
 </head>
 <body>
+    <li><a href="/"> Voltar </a></li>
     <h1>Bem vindo a pagina de Games</h1>
+    <h2>Jogo em destaque</h2>
+   
+    <p>Game maois jogado pelos nossos usuarios</p>
+    <ul>
+        
+        {#Esse é um comentario em Jinja2 (PPython e Flask)#}
+        <li>Titulo: <strong>{{titulo}}</strong></li>
+        <li>Ano: <strong>{{ano}}</strong></li>
+        <li>Categoria: <strong>{{categoria}}</strong></li>
+        <pkjkjkj>O jogo {{titulo}} tem {{2026 - 2011}} anos!</p>
+
+    </ul>
+    <h3>top Players (Ranking de jogadores)</h3>
+    <ol>
+        {% for jogador in jogadores: %}
+        <li>{{jogador   }}</li>
+        {% endfor %}
+    </ol>
 </body>
 </html>
