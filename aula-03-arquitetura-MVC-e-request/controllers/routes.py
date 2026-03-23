@@ -6,6 +6,8 @@ def init_app(app):
     #Variaveis globais
     listaConsoles = ['Playstation 5', 'xbox One', 'Super Nintendo', 'Atari', '3DS',]
     
+    listaGames = [{'titulo' : 'CS-GO', 'ano': 2012, 'categoria': 'FPS online', 'plataforma': 'PC (Windows)'}]
+    
     
         #CRIANDO A ROTA PRINCIPAL DO SITE
     @app.route('/')
@@ -45,3 +47,13 @@ def init_app(app):
         return render_template('consoles.html',
                             console = console,
                             listaConsoles = listaConsoles)
+        
+    @app.route("/cadgames", methods=['GET', 'POST'])
+    def cadgames():
+        # recebendo os dados do formulario e enviando para pagina
+        # verificando se a requisição do usuario é do tipo POST
+        if request.method == 'POST':
+            # aqui ele ira gravar a lista d ejogos
+            listaGames.append({'titulo' : request.form.get('titulo'), 'ano' : request.form.get('ano'), 'categoria' : request.form.get('categoria'), 'plataforma': request.form.get('plataforma')})
+        return render_template('cadgames.html',
+                                listaGames = listaGames)
