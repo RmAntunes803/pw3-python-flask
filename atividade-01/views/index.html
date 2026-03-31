@@ -6,6 +6,8 @@
     <title>RM PESCA</title>
 
     <style>
+
+        
         body {
             margin: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -85,6 +87,7 @@
             padding: 18px;
             margin-top: 60px;
         }
+
     </style>
 </head>
 <body>
@@ -94,8 +97,8 @@
     </header>
 
     <nav>
-        <a href="/lista">Lista</a>
-        <a href="/formulario">Cadastro</a>
+        <a href="{{url_for('lista')}}">Lista</a>
+        <a href="{{url_for('formulario')}}">Cadastro</a>
     </nav>
 
     <div class="conteudo">
@@ -104,6 +107,8 @@
         <button class="botao" onclick="window.location.href='/lista'">
     Ver Produtos
 </button>
+
+
     </div>
 
     <footer>

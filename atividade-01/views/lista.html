@@ -6,12 +6,14 @@
 <title>Produtos - RM Pesca</title>
 
 <style>
+
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     background: linear-gradient(to bottom, #e8f5e9, #c8e6c9);
 }
 
+/* HEADER */
 header {
     background-color: #1b5e20;
     color: white;
@@ -19,33 +21,100 @@ header {
     text-align: center;
 }
 
-.container {
-    width: 80%;
+/* CARD CENTRAL */
+.form-container {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     margin: 40px auto;
+    max-width: 500px;
 }
 
+/* TITULOS */
+h2 {
+    text-align: center;
+    color: #1b5e20;
+}
+
+/* FORM */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* LABEL */
+label {
+    margin-top: 12px;
+    font-weight: 600;
+    font-size: 13px;
+    color: #2e7d32;
+    align-self: flex-start;
+    margin-left: 90px;
+    display: block;      
+    font-weight: bold;
+
+}
+
+/* INPUT */
+input {
+    width: 100%;
+    max-width: 300px;
+    height: 30px;
+    padding: 6px 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 13px;
+}
+
+/* BOTÃO */
+button {
+    padding: 8px 20px;
+    margin-top: 15px;
+    background-color: #43a047;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:hover {
+    background-color: #2e7d32;
+}
+
+/* TABELA */
 table {
     width: 100%;
+    margin-top: 20px;
     border-collapse: collapse;
-    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 th {
     background-color: #2e7d32;
     color: white;
-    padding: 12px;
+    padding: 10px;
 }
 
 td {
-    padding: 12px;
+    padding: 10px;
     text-align: center;
     border-bottom: 1px solid #ddd;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
 }
 
 tr:hover {
     background-color: #f1f8f4;
 }
 
+/* VOLTAR */
 .voltar {
     display: block;
     text-align: center;
@@ -54,49 +123,57 @@ tr:hover {
     text-decoration: none;
     font-weight: bold;
 }
+
+.voltar:hover {
+    text-decoration: underline;
+}
+
 </style>
 </head>
+
 <body>
 
 <header>
     <h1>🎣 Tabela de Produtos</h1>
 </header>
 
-<div class="container">
+<div class="form-container">
+
+    <h2>Cadastre um Produto de Pesca</h2>
+
+    <form action="{{ url_for('lista') }}" method="POST">
+        <label>Nome</label>
+        <input type="text" name="nome_produto" required>
+
+        <label>Categoria</label>
+        <input type="text" name="categoria" required>
+
+        <label>Preço</label>
+        <input type="text" name="preco" required>
+
+        <button type="submit">Cadastrar</button>
+    </form>
+
+    <h2>Produtos cadastrados</h2>
+
     <table>
         <tr>
-            <th>Produto</th>
+            <th>Nome do Produto</th>
             <th>Categoria</th>
             <th>Preço</th>
         </tr>
+
+        {% for u in produtos %}
         <tr>
-            <td>Vara de Pesca Profissional</td>
-            <td>Varas</td>
-            <td>R$ 199,90</td>
+            <td>{{ u.nome_produto }}</td>
+            <td>{{ u.categoria }}</td>
+            <td>{{ u.preco }}</td>
         </tr>
-        <tr>
-            <td>Molinete Ultra Leve</td>
-            <td>Molinetes</td>
-            <td>R$ 149,90</td>
-        </tr>
-        <tr>
-            <td>Isca Artificial Premium</td>
-            <td>Iscas</td>
-            <td>R$ 39,90</td>
-        </tr>
-        <tr>
-            <td>Carretilha Esportiva</td>
-            <td>Carretilhas</td>
-            <td>R$ 289,90</td>
-        </tr>
-        <tr>
-            <td>Linha de Pesca 300m</td>
-            <td>Acessórios</td>
-            <td>R$ 29,90</td>
-        </tr>
+        {% endfor %}
     </table>
 
     <a class="voltar" href="/">← Voltar para o início</a>
+
 </div>
 
 </body>
