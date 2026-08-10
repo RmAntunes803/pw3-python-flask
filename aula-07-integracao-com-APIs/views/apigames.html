@@ -9,8 +9,13 @@
                <img src="{{jogo.thumbnail}}" alt="imagem do jogo">
                <div class="card-body">
                     <h5>{{jogo.title}}</h5> 
-                    <p>{{jogo.genre}}</p> 
-                    <p>{{jogo.plataform}}</p> 
+                    <p>Gênero: {{jogo.genre}}</p> 
+                    <p>Plataforma: {{jogo.platform}}</p> 
+                    <!-- BOTAO DE MAIS INFORMAÇÔES -->
+                    <a href="{{url_for('apigames', id=jogo.id)}}" class="btn btn-dark">+ Info</a>
+
+                    <!-- BOTAO JOGAR -->
+                    <a href="{{jogo.game_url}}" class="btn btn-danger" target="_blank">Jogar </a>
                 </div>
  
             </div>
