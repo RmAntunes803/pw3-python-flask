@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<a href="{{ url_for('index') }}" class="btn btn-outline-secondary mb-3">&larr; Voltar ao catálogo</a>
+
+<div class="card shadow-sm">
+    <div class="row g-0">
+        <div class="col-md-4">
+            {% if peixe.foto %}
+            <img src="{{ peixe.foto }}" class="img-fluid rounded-start" alt="Foto de {{ peixe.nome_comum }}">
+            {% else %}
+            <img src="{{ url_for('static', filename='imgs/sem-foto.png') }}" class="img-fluid rounded-start" alt="Sem foto disponível">
+            {% endif %}
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h3 class="card-title text-capitalize">{{ peixe.nome_comum }}</h3>
+                <h6 class="card-subtitle mb-3 text-muted"><em>{{ peixe.nome_cientifico }}</em></h6>
+
+                {% if peixe.resumo %}
+                <p class="card-text">{{ peixe.resumo }}</p>
+                {% else %}
+                <p class="card-text text-muted">Sem descrição disponível para esta espécie.</p>
+                {% endif %}
+
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><strong>Status de conservação:</strong> {{ peixe.status_conservacao }}</li>
+                    <li class="list-group-item"><strong>Registros de observação:</strong> {{ peixe.observacoes }}</li>
+                </ul>
+
+                {% if peixe.wikipedia_url %}
+                <a href="{{ peixe.wikipedia_url }}" target="_blank" class="btn btn-dark mt-3">Ler mais na Wikipédia</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
